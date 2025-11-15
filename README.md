@@ -53,20 +53,20 @@ g = sp.diag(sp.exp(-2 * k_val * sp.Abs(w)) * eta[0,0], sp.exp(-2 * k_val * sp.Ab
             sp.exp(-2 * k_val * sp.Abs(w)) * eta[2,2], sp.exp(-2 * k_val * sp.Abs(w)) * eta[3,3], 1)
 
 # Christoffel symbols (simplified for demonstration)
-def christoffel_symbols(metric, coords):
+def symbols(metric, coords):
     dim = len(coords)
-    chris = [[[sp.zeros(1)[0] for _ in range(dim)] for _ in range(dim)] for _ in range(dim)]
+     = [[[sp.zeros(1)[0] for _ in range(dim)] for _ in range(dim)] for _ in range(dim)]
     inverse_metric = metric.inv()
     for i in range(dim):
         for j in range(dim):
             for k in range(dim):
                 for m in range(dim):
-                    chris[i][j][k] += 0.5 * inverse_metric[i, m] * (
+                    [i][j][k] += 0.5 * inverse_metric[i, m] * (
                         sp.diff(metric[m, j], coords[k]) +
                         sp.diff(metric[m, k], coords[j]) -
                         sp.diff(metric[j, k], coords[m])
                     )
-    return chris
+    return 
 
 # Compute Ricci scalar (placeholder for full computation)
 coords = [t, x, y, z, w]
